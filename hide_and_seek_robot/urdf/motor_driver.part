@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "669228dab878e81c1f262d1f",
+    "documentMicroversion": "36db3c5385cf08e8e214162e",
+    "elementId": "d69459df3daf3a2d5f4e711c",
+    "fullConfiguration": "default",
+    "id": "M4gAuSJID4Sh3GoxL",
+    "isStandardContent": false,
+    "name": "motor_driver <1>",
+    "partId": "JID",
+    "suppressed": false,
+    "type": "Part"
+}

@@ -1,0 +1,410 @@
+<robot name="onshape">
+<link name="baseplate">
+<visual>
+<origin xyz="7.0843416324350982904e-05 -0.0069324573774356378075 -0.011855225579580292231" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/baseplate.stl"/>
+</geometry>
+<material name="baseplate_material">
+<color rgba="0.76862745098039220171 0.88627450980392152857 0.95294117647058818044 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="7.0843416324350982904e-05 -0.0069324573774356378075 -0.011855225579580292231" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/baseplate.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="7.08434163243536392e-05 -0.0069324573774356447464 -0.013855225579580292272" rpy="0 0 0"/>
+<mass value="0.036593764457776671584" />
+<inertia ixx="2.4214215997551075062e-05" ixy="0"  ixz="0" iyy="1.9036929895563286575e-05" iyz="0" izz="4.3153562521226957772e-05" />
+</inertial>
+</link>
+
+<link name="motor1">
+<visual>
+<origin xyz="0.044000000000000004385 -1.561251128379126385e-17 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/motor1.stl"/>
+</geometry>
+<material name="motor1_material">
+<color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.044000000000000004385 -1.561251128379126385e-17 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/motor1.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.020000000000000000416 -2.2522953893521321077e-18 -0.0050000000000000001041" rpy="0 0 0"/>
+<mass value="0.037994000000000006934" />
+<inertia ixx="7.8017512833333345555e-07" ixy="0"  ixz="0" iyy="5.3824833333333347023e-06" iyz="0" izz="5.5294251283333350371e-06" />
+</inertial>
+</link>
+
+<link name="wheel1">
+<visual>
+<origin xyz="1.3877787807814456755e-17 -0.0050000000000000018388 0.044000000000000004385" rpy="-1.570796326794896558 -1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/wheel1.stl"/>
+</geometry>
+<material name="wheel1_material">
+<color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="1.3877787807814456755e-17 -0.0050000000000000018388 0.044000000000000004385" rpy="-1.570796326794896558 -1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/wheel1.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0 0 -0.004999999999999997502" rpy="0 0 0"/>
+<mass value="0.024543692606170262188" />
+<inertia ixx="4.0394827414321900924e-06" ixy="0"  ixz="0" iyy="4.0394827414321892453e-06" iyz="0" izz="7.6699039394282082213e-06" />
+</inertial>
+</link>
+
+<joint name="right_wheel" type="continuous">
+<origin xyz="0 0 -0.0050000000000000001041" rpy="-1.570796326794896558 -0 -1.570796326794896558" />
+<parent link="motor1" />
+<child link="wheel1" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="fixed_1" type="fixed">
+<origin xyz="-0.04242915658367565207 -0.0069324573774356239297 -0.011855225579580292231" rpy="3.141592653589793116 -0 0" />
+<parent link="baseplate" />
+<child link="motor1" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="motor2">
+<visual>
+<origin xyz="-0.043999999999999997446 1.3877787807814456755e-17 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/motor2.stl"/>
+</geometry>
+<material name="motor2_material">
+<color rgba="0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-0.043999999999999997446 1.3877787807814456755e-17 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/motor2.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-0.019999999999999996947 3.4350261755799889777e-18 -0.0050000000000000009714" rpy="0 0 0"/>
+<mass value="0.037993999999999993056" />
+<inertia ixx="7.8017512833333303203e-07" ixy="0"  ixz="0" iyy="5.3824833333333296201e-06" iyz="0" izz="5.5294251283333291079e-06" />
+</inertial>
+</link>
+
+<link name="wheel2">
+<visual>
+<origin xyz="1.3877787807814456755e-17 0.0050000000000000018388 0.044000000000000004385" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/wheel2.stl"/>
+</geometry>
+<material name="wheel2_material">
+<color rgba="0.49803921568627451677 0.49803921568627451677 0.49803921568627451677 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="1.3877787807814456755e-17 0.0050000000000000018388 0.044000000000000004385" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/wheel2.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0 0 -0.004999999999999997502" rpy="0 0 0"/>
+<mass value="0.024543692606170262188" />
+<inertia ixx="4.0394827414321900924e-06" ixy="0"  ixz="0" iyy="4.0394827414321892453e-06" iyz="0" izz="7.6699039394282082213e-06" />
+</inertial>
+</link>
+
+<joint name="left_wheel" type="continuous">
+<origin xyz="0 0 -0.0050000000000000001041" rpy="1.570796326794896558 -0 -1.570796326794896558" />
+<parent link="motor2" />
+<child link="wheel2" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="front_roller">
+<visual>
+<origin xyz="0.035000000000000003331 -0.010000000000000001943 0" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/front_roller.stl"/>
+</geometry>
+<material name="front_roller_material">
+<color rgba="0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.035000000000000003331 -0.010000000000000001943 0" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/front_roller.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0 0 1.6851185064652314734e-18" rpy="0 0 0"/>
+<mass value="0.0098174770424681069569" />
+<inertia ixx="7.5676385535691614188e-07" ixy="0"  ixz="0" iyy="7.5676385535691614188e-07" iyz="0" izz="4.9087385212340555147e-07" />
+</inertial>
+</link>
+
+<joint name="front_wheel" type="continuous">
+<origin xyz="-0.042999999999999989619 0.03500000000000001027 0.010000000000000000208" rpy="1.570796326794896558 -0 -1.57079632679489678" />
+<parent link="motor2" />
+<child link="front_roller" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="back_roller">
+<visual>
+<origin xyz="-0.035000000000000003331 -0.010000000000000001943 -5.42101086242752217e-20" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/back_roller.stl"/>
+</geometry>
+<material name="back_roller_material">
+<color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-0.035000000000000003331 -0.010000000000000001943 -5.42101086242752217e-20" rpy="1.570796326794896558 1.570796326794896558 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/back_roller.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0 0 1.6309083978409562517e-18" rpy="0 0 0"/>
+<mass value="0.0098174770424681069569" />
+<inertia ixx="7.5676385535691614188e-07" ixy="0"  ixz="0" iyy="7.5676385535691614188e-07" iyz="0" izz="4.9087385212340544559e-07" />
+</inertial>
+</link>
+
+<joint name="back_wheel" type="continuous">
+<origin xyz="-0.043000000000000003497 -0.034999999999999996392 0.010000000000000000208" rpy="1.570796326794896558 -0 -1.57079632679489678" />
+<parent link="motor2" />
+<child link="back_roller" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="fixed_2" type="fixed">
+<origin xyz="0.042570843416324360975 -0.006932457377435641277 -0.011855225579580292231" rpy="3.141592653589793116 -0 0" />
+<parent link="baseplate" />
+<child link="motor2" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="battery">
+<visual>
+<origin xyz="2.6698478497455546687e-18 -0.023249999999999972078 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/battery.stl"/>
+</geometry>
+<material name="battery_material">
+<color rgba="0.91764705882352937127 0.91764705882352937127 0.91764705882352937127 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="2.6698478497455546687e-18 -0.023249999999999972078 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/battery.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-2.9767690742689923557e-18 0 -0.0087500000000000025674" rpy="0 0 0"/>
+<mass value="0.17656121874999980426" />
+<inertia ixx="1.483849909244786527e-05" ixy="0"  ixz="0" iyy="3.9115666670572879883e-05" iyz="0" izz="4.494218688932283555e-05" />
+</inertial>
+</link>
+
+<joint name="fixed_3" type="fixed">
+<origin xyz="7.0843416324346618991e-05 -0.031932457377435642665 -0.011855225579580292231" rpy="3.141592653589793116 -0 0" />
+<parent link="baseplate" />
+<child link="battery" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="motor_driver">
+<visual>
+<origin xyz="8.6736173798840354721e-18 0.032000000000000007605 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/motor_driver.stl"/>
+</geometry>
+<material name="motor_driver_material">
+<color rgba="0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="8.6736173798840354721e-18 0.032000000000000007605 0" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/motor_driver.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="1.8611858772862470975e-18 0 -0.010000000000000001943" rpy="0 0 0"/>
+<mass value="0.32467599999999996463" />
+<inertia ixx="6.320359466666665546e-05" ixy="0"  ixz="0" iyy="7.0589973666666672582e-05" iyz="0" izz="0.0001121485016666666745" />
+</inertial>
+</link>
+
+<joint name="fixed_4" type="fixed">
+<origin xyz="7.0843416324346618991e-05 0.023067542622564357613 -0.011855225579580292231" rpy="3.141592653589793116 -0 0" />
+<parent link="baseplate" />
+<child link="motor_driver" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="midplate">
+<visual>
+<origin xyz="4.3639137442541553469e-18 -3.4694469519536141888e-18 0.020000000000000000416" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/midplate.stl"/>
+</geometry>
+<material name="midplate_material">
+<color rgba="0.80000000000000004441 0.74901960784313725839 0.91372549019607840481 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="4.3639137442541553469e-18 -3.4694469519536141888e-18 0.020000000000000000416" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/midplate.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="1.1107992583584590315e-17 1.5550837307701458575e-18 -0.0019999999999999983069" rpy="0 0 0"/>
+<mass value="0.036593764457776678523" />
+<inertia ixx="2.4214215997551075062e-05" ixy="0"  ixz="0" iyy="1.9036929895563283187e-05" iyz="0" izz="4.3153562521226957772e-05" />
+</inertial>
+</link>
+
+<link name="arduino">
+<visual>
+<origin xyz="6.9117888495950907668e-19 0 0.0240000000000000005" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/arduino.stl"/>
+</geometry>
+<material name="arduino_material">
+<color rgba="0.88235294117647056211 0.57254901960784310155 0.47843137254901962896 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="6.9117888495950907668e-19 0 0.0240000000000000005" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/arduino.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="4.5271221738092937797e-18 -1.9072041788098716046e-18 -0.0025000000000000022204" rpy="0 0 0"/>
+<mass value="0.14357874510000009916" />
+<inertia ixx="5.6572614772770010597e-05" ixy="0"  ixz="0" iyy="3.4341111607478171292e-05" iyz="0" izz="9.0315481608998197547e-05" />
+</inertial>
+</link>
+
+<link name="imu">
+<visual>
+<origin xyz="-2.9137933385547931664e-18 8.6736173798840354721e-19 0.028999999999999998002" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/imu.stl"/>
+</geometry>
+<material name="imu_material">
+<color rgba="0.64705882352941179736 0.64705882352941179736 0.64705882352941179736 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-2.9137933385547931664e-18 8.6736173798840354721e-19 0.028999999999999998002" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/imu.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-1.3700110882781381254e-18 4.5954478475168219139e-19 -0.0014999999999999978628" rpy="0 0 0"/>
+<mass value="0.007064999999999999232" />
+<inertia ixx="1.3776750000000000593e-07" ixy="0"  ixz="0" iyy="2.4079875000000000415e-07" iyz="0" izz="3.6796874999999999741e-07" />
+</inertial>
+</link>
+
+<joint name="fixed_7" type="fixed">
+<origin xyz="4.7433845046240818988e-19 -1.7347234759768070944e-18 -0.0049999999999999992367" rpy="0 -0 0" />
+<parent link="arduino" />
+<child link="imu" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="bluetooth">
+<visual>
+<origin xyz="-2.6020852139652106416e-18 0.020000000000000003886 0.029000000000000001471" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/bluetooth.stl"/>
+</geometry>
+<material name="bluetooth_material">
+<color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="-2.6020852139652106416e-18 0.020000000000000003886 0.029000000000000001471" rpy="3.141592653589793116 -0 0" />
+<geometry>
+<mesh filename="package://hide_and_seek_robot/urdf/bluetooth.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-1.9506951587331346559e-18 6.9388939039072283776e-18 -0.0014999999999999978628" rpy="0 0 0"/>
+<mass value="0.009184499999999998221" />
+<inertia ixx="1.3623674999999997087e-07" ixy="0"  ixz="0" iyy="6.9572587499999969777e-07" iyz="0" izz="8.181858749999997501e-07" />
+</inertial>
+</link>
+
+<joint name="fixed_8" type="fixed">
+<origin xyz="4.7433845046240818988e-19 -0.020000000000000003886 -0.0049999999999999992367" rpy="0 -0 0" />
+<parent link="arduino" />
+<child link="bluetooth" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="fixed_6" type="fixed">
+<origin xyz="-4.7433845046240818988e-19 8.6736173798840354721e-19 -0.0040000000000000000833" rpy="0 -0 0" />
+<parent link="midplate" />
+<child link="arduino" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="fixed_5" type="fixed">
+<origin xyz="7.0843416324346618991e-05 -0.0069324573774356404096 0.0081447744204197081858" rpy="3.141592653589793116 -0 0" />
+<parent link="baseplate" />
+<child link="midplate" />
+<axis xyz="0 0 1"/>
+<limit effort="1" velocity="20" />
+<joint_properties friction="0.0"/>
+</joint>
+
+
+</robot>
